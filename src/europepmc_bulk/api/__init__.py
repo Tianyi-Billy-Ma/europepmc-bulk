@@ -3,6 +3,13 @@
 from europepmc_bulk.api.annotations import AnnotationsCollector
 from europepmc_bulk.api.articles import ArticlesClient
 from europepmc_bulk.api.ftp import FTPDownloader
+from europepmc_bulk.api.oai import OAIUpdater
 from europepmc_bulk.api.search import AbstractHarvester
 
-__all__ = ["AbstractHarvester", "AnnotationsCollector", "ArticlesClient", "FTPDownloader"]
+__all__ = [
+    "AbstractHarvester",
+    "AnnotationsCollector",
+    "ArticlesClient",
+    "FTPDownloader",
+    "OAIUpdater",
+]
