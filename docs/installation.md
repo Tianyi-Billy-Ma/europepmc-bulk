@@ -13,7 +13,7 @@ pip install "europepmc-bulk[async]"
 For development:
 
 ```bash
-git clone https://github.com/mtybilly/europepmc-bulk
+git clone https://github.com/Tianyi-Billy-Ma/europepmc-bulk
 cd europepmc-bulk
 pip install -e ".[dev,docs,async]"
 ```

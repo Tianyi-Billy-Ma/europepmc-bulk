@@ -4,4 +4,4 @@ This project adheres to the [Contributor Covenant 2.1](https://www.contributor-c
 
 By participating, you agree to abide by its terms.
 
-Report violations by opening a confidential issue at https://github.com/mtybilly/europepmc-bulk/issues.
+Report violations by opening a confidential issue at https://github.com/Tianyi-Billy-Ma/europepmc-bulk/issues.

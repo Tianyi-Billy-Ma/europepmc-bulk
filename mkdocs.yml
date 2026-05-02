@@ -1,6 +1,6 @@
 site_name: europepmc-bulk
 site_url: https://europepmc-bulk.readthedocs.io
-repo_url: https://github.com/mtybilly/europepmc-bulk
+repo_url: https://github.com/Tianyi-Billy-Ma/europepmc-bulk
 edit_uri: edit/main/docs/
 
 theme:

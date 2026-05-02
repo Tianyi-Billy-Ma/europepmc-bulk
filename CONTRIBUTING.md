@@ -3,7 +3,7 @@
 ## Dev setup
 
 ```bash
-git clone https://github.com/mtybilly/europepmc-bulk
+git clone https://github.com/Tianyi-Billy-Ma/europepmc-bulk
 cd europepmc-bulk
 python -m venv .venv
 source .venv/bin/activate
