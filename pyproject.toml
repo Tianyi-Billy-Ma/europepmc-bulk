@@ -1,0 +1,91 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "europepmc-bulk"
+dynamic = ["version"]
+description = "Bulk, parallel, resumable harvester for the Europe PMC corpus"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Billy Ma" }]
+keywords = ["europepmc", "bioinformatics", "scientific-literature", "data-collection", "harvester"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Text Processing :: Markup :: XML",
+]
+dependencies = [
+    "requests>=2.28",
+    "lxml>=4.9",
+    "tqdm>=4.64",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+async = ["aiohttp>=3.8"]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "pytest-mock>=3.12",
+    "responses>=0.24",
+    "ruff>=0.5",
+    "mypy>=1.8",
+    "pre-commit>=3.6",
+    "types-requests",
+    "types-tqdm",
+]
+docs = [
+    "mkdocs>=1.5",
+    "mkdocs-material>=9.4",
+    "mkdocstrings[python]>=0.24",
+]
+
+[project.urls]
+Documentation = "https://europepmc-bulk.readthedocs.io"
+Repository = "https://github.com/mtybilly/europepmc-bulk"
+Issues = "https://github.com/mtybilly/europepmc-bulk/issues"
+Changelog = "https://github.com/mtybilly/europepmc-bulk/blob/main/CHANGELOG.md"
+
+[project.scripts]
+europepmc-bulk = "europepmc_bulk.cli.main:cli"
+
+[tool.hatch.version]
+path = "src/europepmc_bulk/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/europepmc_bulk"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "PIE", "RET", "SIM", "TCH"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unreachable = true
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+testpaths = ["tests"]
+markers = [
+    "live: marks tests that hit the real Europe PMC API (deselect with '-m \"not live\"')",
+]
+
+[tool.coverage.run]
+source = ["src/europepmc_bulk"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "raise NotImplementedError", "if TYPE_CHECKING:"]
