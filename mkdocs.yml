@@ -1,0 +1,47 @@
+site_name: europepmc-bulk
+site_url: https://europepmc-bulk.readthedocs.io
+repo_url: https://github.com/mtybilly/europepmc-bulk
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - toc.integrate
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Quickstart: quickstart.md
+  - Concepts: concepts.md
+  - CLI: cli.md
+  - Examples: examples.md
+  - API:
+      - HTTPClient: api/client.md
+      - AbstractHarvester: api/search.md
+      - ArticlesClient: api/articles.md
+      - AnnotationsCollector: api/annotations.md
+      - FTPDownloader: api/ftp.md
+      - OAIUpdater: api/oai.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            show_signature_annotations: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
