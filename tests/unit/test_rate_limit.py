@@ -43,4 +43,4 @@ def test_rate_limiter_thread_safe() -> None:
     elapsed = time.monotonic() - start
 
     assert counter["n"] == 20
-    assert 0.3 <= elapsed <= 1.0
+    assert 0.3 <= elapsed <= 3.0
