@@ -31,16 +31,18 @@ class ArticlesClient:
         """Return cross-references to external databases (PDB, UniProt, etc.)."""
         url = f"{self.config.rest_base_url}/{source}/{ext_id}/databaseLinks"
         data = self.client.fetch_json(url, params={"format": "json", "page": 1, "pageSize": 1000})
-        return cast(list[dict[str, Any]], data.get("dbCrossReferenceList", {}).get("dbCrossReference", []))
+        return cast(
+            "list[dict[str, Any]]", data.get("dbCrossReferenceList", {}).get("dbCrossReference", [])
+        )
 
     def get_references(self, source: str, ext_id: str) -> list[dict[str, Any]]:
         """Return the article's references."""
         url = f"{self.config.rest_base_url}/{source}/{ext_id}/references"
         data = self.client.fetch_json(url, params={"format": "json", "page": 1, "pageSize": 1000})
-        return cast(list[dict[str, Any]], data.get("referenceList", {}).get("reference", []))
+        return cast("list[dict[str, Any]]", data.get("referenceList", {}).get("reference", []))
 
     def get_citations(self, source: str, ext_id: str) -> list[dict[str, Any]]:
         """Return papers that cite this one."""
         url = f"{self.config.rest_base_url}/{source}/{ext_id}/citations"
         data = self.client.fetch_json(url, params={"format": "json", "page": 1, "pageSize": 1000})
-        return cast(list[dict[str, Any]], data.get("citationList", {}).get("citation", []))
+        return cast("list[dict[str, Any]]", data.get("citationList", {}).get("citation", []))

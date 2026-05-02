@@ -41,10 +41,16 @@ class HTTPClient:
                 self.rate_limiter.wait()
             resp = self._session.get(url, params=params, timeout=self.timeout)
             if resp.status_code in _RETRYABLE_STATUS and attempt < self.retry_max:
-                wait = backoff_seconds(attempt, base=self.retry_initial_wait, cap=self.retry_cap_wait)
+                wait = backoff_seconds(
+                    attempt, base=self.retry_initial_wait, cap=self.retry_cap_wait
+                )
                 self.logger.warning(
                     "HTTP %d for %s — retry %d/%d in %.1fs",
-                    resp.status_code, url, attempt + 1, self.retry_max, wait,
+                    resp.status_code,
+                    url,
+                    attempt + 1,
+                    self.retry_max,
+                    wait,
                 )
                 if wait > 0:
                     time.sleep(wait)

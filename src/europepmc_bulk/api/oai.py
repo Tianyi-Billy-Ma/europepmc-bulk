@@ -9,7 +9,9 @@ from europepmc_bulk.config import Config
 from europepmc_bulk.persistence import ResumeState, atomic_write
 from europepmc_bulk.utils import RateLimiter, setup_logger
 
-_TOKEN_RE = re.compile(r"<resumptionToken[^>]*>([^<]*)</resumptionToken>", re.IGNORECASE | re.DOTALL)
+_TOKEN_RE = re.compile(
+    r"<resumptionToken[^>]*>([^<]*)</resumptionToken>", re.IGNORECASE | re.DOTALL
+)
 
 
 class OAIUpdater:

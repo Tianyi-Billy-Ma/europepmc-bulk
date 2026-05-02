@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from pathlib import Path
 
 from tqdm import tqdm
 
@@ -57,7 +56,8 @@ class AbstractHarvester:
         page_key = f"abstracts_{year}_{output_format}_page"
 
         out_dir = (
-            self.config.abstracts_xml_dir if output_format == "xml"
+            self.config.abstracts_xml_dir
+            if output_format == "xml"
             else self.config.abstracts_json_dir
         ) / str(year)
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -68,7 +68,9 @@ class AbstractHarvester:
         pages_estimate = max(1, total_hits // self.config.rest_page_size + 1)
 
         url = f"{self.config.rest_base_url}/search"
-        with tqdm(total=pages_estimate, initial=page, desc=f"{year}/{output_format}", unit="page") as pbar:
+        with tqdm(
+            total=pages_estimate, initial=page, desc=f"{year}/{output_format}", unit="page"
+        ) as pbar:
             while True:
                 params = {
                     "query": query,
@@ -92,7 +94,9 @@ class AbstractHarvester:
                 pbar.update(1)
 
                 if not next_cursor or next_cursor == cursor:
-                    self.logger.info("Year %d [%s]: finished after %d pages", year, output_format, page)
+                    self.logger.info(
+                        "Year %d [%s]: finished after %d pages", year, output_format, page
+                    )
                     self.resume_state.remove(cursor_key)
                     self.resume_state.remove(page_key)
                     return

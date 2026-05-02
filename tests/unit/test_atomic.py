@@ -26,7 +26,9 @@ def test_atomic_write_creates_parent_dirs(tmp_path: Path) -> None:
     assert target.read_text() == "hi"
 
 
-def test_atomic_write_no_partial_file_on_error(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_atomic_write_no_partial_file_on_error(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """If the write fails midway, no partial file should remain at the target path."""
     target = tmp_path / "out.txt"
     target.write_text("preserved")

@@ -10,7 +10,13 @@ from europepmc_bulk.cli.main import cli
 def test_cli_help_lists_subcommands() -> None:
     result = CliRunner().invoke(cli, ["--help"])
     assert result.exit_code == 0
-    for sub in ("harvest-abstracts", "download-fulltext", "download-annotations", "update", "version"):
+    for sub in (
+        "harvest-abstracts",
+        "download-fulltext",
+        "download-annotations",
+        "update",
+        "version",
+    ):
         assert sub in result.output
 
 

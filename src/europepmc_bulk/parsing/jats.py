@@ -28,7 +28,9 @@ def parse_jats_article(xml: str) -> dict[str, Any]:
     sections: list[dict[str, str]] = []
     for sec in root.findall(".//body//sec"):
         sec_title_el = sec.find("title")
-        sec_title = sec_title_el.text.strip() if sec_title_el is not None and sec_title_el.text else ""
+        sec_title = (
+            sec_title_el.text.strip() if sec_title_el is not None and sec_title_el.text else ""
+        )
         sec_text_parts = [_text_of(p) for p in sec.findall("p")]
         sections.append({"title": sec_title, "text": " ".join(sec_text_parts)})
 

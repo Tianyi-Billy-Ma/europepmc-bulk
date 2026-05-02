@@ -17,7 +17,16 @@ def test_imports() -> None:
     )
 
     assert __version__
-    for cls in (AbstractHarvester, AnnotationsCollector, ArticlesClient, FTPDownloader, OAIUpdater, HTTPClient, Config, ResumeState):
+    for cls in (
+        AbstractHarvester,
+        AnnotationsCollector,
+        ArticlesClient,
+        FTPDownloader,
+        OAIUpdater,
+        HTTPClient,
+        Config,
+        ResumeState,
+    ):
         assert callable(cls)
     assert callable(atomic_write)
     assert callable(parse_jats_article)

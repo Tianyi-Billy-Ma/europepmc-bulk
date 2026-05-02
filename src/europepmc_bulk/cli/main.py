@@ -37,9 +37,13 @@ def version_cmd() -> None:
 @click.option("--data-dir", default=None, envvar="EUROPEPMC_DATA_DIR")
 @click.option("--start-year", type=int, default=1900, show_default=True)
 @click.option("--end-year", type=int, default=2026, show_default=True)
-@click.option("--format", "fmt", default="json", show_default=True, help="Comma-separated: json,xml")
+@click.option(
+    "--format", "fmt", default="json", show_default=True, help="Comma-separated: json,xml"
+)
 @click.option("--workers", type=int, default=None)
-def harvest_abstracts(data_dir: str | None, start_year: int, end_year: int, fmt: str, workers: int | None) -> None:
+def harvest_abstracts(
+    data_dir: str | None, start_year: int, end_year: int, fmt: str, workers: int | None
+) -> None:
     """Harvest abstracts via REST search for a year range."""
     cfg = _config(data_dir)
     formats = [f.strip() for f in fmt.split(",") if f.strip()]
@@ -63,7 +67,9 @@ def download_fulltext(data_dir: str | None) -> None:
 @click.option("--ids-file", required=True, type=click.Path(exists=True, dir_okay=False))
 @click.option("--type", "ann_type", default=None, help="Optional annotation type filter")
 @click.option("--workers", type=int, default=None)
-def download_annotations(data_dir: str | None, ids_file: str, ann_type: str | None, workers: int | None) -> None:
+def download_annotations(
+    data_dir: str | None, ids_file: str, ann_type: str | None, workers: int | None
+) -> None:
     """Collect semantic annotations for a list of article IDs (one per line)."""
     cfg = _config(data_dir)
     ids = [line.strip() for line in Path(ids_file).read_text().splitlines() if line.strip()]

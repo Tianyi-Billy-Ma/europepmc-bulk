@@ -6,7 +6,9 @@ import logging
 from pathlib import Path
 
 
-def setup_logger(name: str, log_dir: Path | None = None, level: int = logging.INFO) -> logging.Logger:
+def setup_logger(
+    name: str, log_dir: Path | None = None, level: int = logging.INFO
+) -> logging.Logger:
     """Return a logger with stream handler (and optional file handler).
 
     Idempotent — repeated calls with the same ``name`` reuse handlers.
