@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-02
+
+### Fixed
+- README badges now render correctly on GitHub (cache-bust by removing `.svg` extension)
+- PyPI license metadata now uses SPDX expression (`license = "MIT"`) instead of deprecated file-embed format
+
 ## [0.1.0] - 2026-05-01
 
 ### Added

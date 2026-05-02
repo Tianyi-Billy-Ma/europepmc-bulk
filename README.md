@@ -1,8 +1,8 @@
 # europepmc-bulk
 
-[![PyPI](https://img.shields.io/pypi/v/europepmc-bulk.svg)](https://pypi.org/project/europepmc-bulk/)
-[![Python](https://img.shields.io/pypi/pyversions/europepmc-bulk.svg)](https://pypi.org/project/europepmc-bulk/)
-[![License](https://img.shields.io/pypi/l/europepmc-bulk.svg)](LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/europepmc-bulk)](https://pypi.org/project/europepmc-bulk/)
+[![Python](https://img.shields.io/pypi/pyversions/europepmc-bulk)](https://pypi.org/project/europepmc-bulk/)
+[![License](https://img.shields.io/pypi/l/europepmc-bulk)](LICENSE)
 
 Bulk, parallel, resumable harvester for the [Europe PMC](https://europepmc.org/) corpus.
 
