@@ -1,0 +1,9 @@
+{
+  "hitCount": 2,
+  "nextCursorMark": "AoIIPAabc",
+  "resultList": {
+    "result": [
+      {"pmid": "1002", "title": "Article 2", "abstractText": "abs 2"}
+    ]
+  }
+}
