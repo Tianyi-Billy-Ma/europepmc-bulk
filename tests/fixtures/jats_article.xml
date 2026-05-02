@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article>
+  <front>
+    <article-meta>
+      <article-id pub-id-type="pmid">12345</article-id>
+      <article-id pub-id-type="pmcid">PMC1234567</article-id>
+      <article-id pub-id-type="doi">10.1234/example</article-id>
+      <title-group><article-title>Example Title</article-title></title-group>
+      <abstract><p>Example abstract.</p></abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec><title>Introduction</title><p>Intro paragraph.</p></sec>
+    <sec><title>Methods</title><p>Methods text.</p></sec>
+  </body>
+</article>
